@@ -7,4 +7,10 @@ until the time it becomes searchable.
 ## Cluster
 A cluster is a collection of one or more nodes (servers) that together holds your entire data and provides federated indexing and search capabilities across all nodes. 
 A cluster is identified by a unique name which by default is "elasticsearch". This name is important because a node can only be part of a cluster if the node is set up 
-to join the cluster by its name.
+to join the cluster by its name. (Like Mysql Master Host)
+
+## Node
+A node is a single server that is part of your cluster, stores your data, and participates in the cluster’s indexing and search capabilities. 
+Just like a cluster, a node is identified by a name which by default is a random Universally Unique IDentifier (UUID) that is assigned to the node at startup. 
+You can define any node name you want if you do not want the default. This name is important for administration purposes where you want to identify which servers 
+in your network correspond to which nodes in your Elasticsearch cluster.  
