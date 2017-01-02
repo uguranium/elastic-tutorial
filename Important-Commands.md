@@ -5,3 +5,4 @@
 
 ## Create an Index
 > PUT /customer?pretty
+**Note: Use the Postman for sending methods** 
