@@ -203,6 +203,30 @@ Lets try to get customer id 2
 ```
 We are sure that customer 2 is deleted.
 
+## Bulk Actions
+
+Bulk index example:
+
+> POST /customer/external/_bulk
+```
+{"index":{"_id":"1"}}
+{"name": "John Doe" }
+{"index":{"_id":"2"}}
+{"name": "Jane Doe" }
+
+```
+
+Note: You should be having the new line character \n at the end of the last line in your  json body.
+
+Bulk update and delete example:
+
+>POST /customer/external/_bulk?pretty
+
+```
+{"update":{"_id":"1"}}
+{"doc": { "name": "John Doe becomes Jane Doe" } }
+{"delete":{"_id":"2"}}
+```
 
 
 
