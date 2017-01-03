@@ -129,6 +129,79 @@ Response:
 }
 ```
 
+## Updating Documents (like an SQL UPDATE-WHERE statement)
+For  updating useing the **POST** method.
+>POST /customer/external/1/_update
+```
+{
+  "doc": { "name": "Ugur CELIK" }
+}
+```
+
+Response
+```
+{
+  "_index": "customer",
+  "_type": "external",
+  "_id": "1",
+  "_version": 3,
+  "result": "updated",
+  "_shards": {
+    "total": 2,
+    "successful": 1,
+    "failed": 0
+  }
+}
+```
+
+Add the age value
+
+>POST /customer/external/1/_update
+```
+{
+	"doc" :	{"age" : "26"}
+}
+```
+
+Update the age value
+> POST /customer/external/1/_update
+```
+{
+	"doc" :	{"age" : "27"}
+}
+```
+
+## Delete Documents
+> DELETE /customer/external/2
+
+Response:
+```
+{
+  "found": true,
+  "_index": "customer",
+  "_type": "external",
+  "_id": "2",
+  "_version": 2,
+  "result": "deleted",
+  "_shards": {
+    "total": 2,
+    "successful": 1,
+    "failed": 0
+  }
+}
+```
+
+Lets try to get customer id 2
+> GET /customer/external/2
+```
+{
+  "_index": "customer",
+  "_type": "external",
+  "_id": "2",
+  "found": false
+}
+```
+We are sure that customer 2 is deleted.
 
 
 
