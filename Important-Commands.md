@@ -83,7 +83,7 @@ DELETE /customer
 ```
 
 # How Access Data In Elasticsearch
-> <REST Verb> /<Index>/<Type>/<ID>
+>  REST Verb  / Index / Type / ID 
 
 
 
