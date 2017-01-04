@@ -115,4 +115,48 @@ This example does a match_all and sorts the results by account balance in descen
 ```
 **Note that if size is not specified, it defaults to 10.**
 
+## Executing Searches
+If we use
+> POST bank/_search
+```
+{
+  "query" : { "match_all": {} }
+}
+```
+Response source is like this:
+```
+"_source": {
+          "account_number": 0,
+          "balance": 16623,
+          "firstname": "Bradshaw",
+          "lastname": "Mckenzie",
+          "age": 29,
+          "gender": "F",
+          "address": "244 Columbus Place",
+          "employer": "Euron",
+          "email": "bradshawmckenzie@euron.com",
+          "city": "Hobucken",
+          "state": "CO"
+}
+```
+
+If we need just account_number and balance we can make query like this:
+> POST /bank/search
+```
+{
+	"query": { "match_all": {} }
+	"_source": ["account_number","balance"]
+}
+```
+source will be like this:
+```
+"_source": {
+          "account_number": 0,
+          "balance": 16623
+        }
+```
+Its like sql query Select XXX from ...
+
+
+
 
