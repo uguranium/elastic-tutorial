@@ -158,5 +158,56 @@ source will be like this:
 Its like sql query Select XXX from ...
 
 
+This example returns the account numbered 20:
+> POST /bank/_search
+```
+{
+  "query": { "match": { "account_number": 20 } }
+}
+```
 
+## Search Examples
+
+This example returns all accounts containing the term "mill" in the address:
+> POST /bank/_search
+```
+{
+  "query": { "match": { "address": "mill" } }
+}
+```
+
+
+This example returns all accounts containing the term "mill" or "lane" in the address:
+> POST /bank/_search
+```
+{
+  "query": { "match": { "address": "mill lane" } }
+}
+```
+
+
+This example is a variant of match (match_phrase) that returns all accounts containing the phrase "mill lane" in the address:
+> POST /bank/_search
+```
+{
+	"query": { "match_phrase": { "address": "mill lane" } }
+}
+```
+
+
+
+This example composes two match queries and returns all accounts containing "mill" and "lane" in the address:
+> POST /bank/_search
+```
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "address": "mill" } },
+        { "match": { "address": "lane" } }
+      ]
+    }
+  }
+}
+```
 
