@@ -211,3 +211,53 @@ This example composes two match queries and returns all accounts containing "mil
 }
 ```
 
+
+
+In contrast, this example composes two match queries and returns all accounts containing "mill" or "lane" in the address:
+> POST /bank/_search
+```
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "address": "mill" } },
+        { "match": { "address": "lane" } }
+      ]
+    }
+  }
+}
+```
+
+
+
+This example composes two match queries and returns all accounts that contain neither "mill" nor "lane" in the address:
+> POST /bank/_search
+```
+{
+  "query": {
+    "bool": {
+      "must_not": [
+        { "match": { "address": "mill" } },
+        { "match": { "address": "lane" } }
+      ]
+    }
+  }
+}
+```
+
+This example returns all accounts of anybody who is 40 years old but don’t live in ID(aho):
+> POST /bank/_search
+```
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "age": "40" } }
+      ],
+      "must_not": [
+        { "match": { "state": "ID" } }
+      ]
+    }
+  }
+}
+```
