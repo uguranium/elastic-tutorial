@@ -213,7 +213,6 @@ Bulk index example:
 {"name": "John Doe" }
 {"index":{"_id":"2"}}
 {"name": "Jane Doe" }
-
 ```
 
 Note: You should be having the new line character \n at the end of the last line in your  json body.
